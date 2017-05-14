@@ -33,6 +33,17 @@ public class AddressBook implements Serializable {
 		}
 	}
 
+	public List<Contact> findContactByLastName(String lastName) {
+		List<Contact> foundRecords = new ArrayList<>();
+
+		for (Contact contact : contacts) {
+			if (contact.getPerson().getLastName().equalsIgnoreCase(lastName)) {
+				foundRecords.add(contact);
+			}
+		}
+		return foundRecords;
+	}
+
 	public boolean hasContact(Contact contact) {
 		return contacts.contains(contact) ? true : false;
 	}
